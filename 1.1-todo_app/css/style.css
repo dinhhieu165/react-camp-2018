@@ -1,76 +1,91 @@
-#container {
-  padding: 0px;
-  width: 900px;
-  height: 300px;
-  margin-left: 15%;
-  margin-right: 10%;
-  position:relative;
-  top:0px;
+* {
+  box-sizing: border-box;
+  font-family: "Times New Roman", serif;
 }
 
-#header {
-  background-color: #ff3333;
-  margin-right: 20%;
-  margin-left: 20%;
-  padding: 8px;
-}
-
-#header-title {
+.header {
+  background-color: red;
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
-  color: #f5f5f5;
+  padding: 15px;
 }
 
-#create {
-  height: 40px;
-  margin-left: 70px;
-  margin-right: 70px;
+.header h1 {
+  margin-bottom: 10px;
+  color: #fff;
 }
 
-#content {
-  padding:20px;
-  margin-left: 20%;
-  margin-right: 20%;
-  padding: 0px;
+.create {
+  position: relative;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
-#type-text {
-  width: 320px;
+.create input {
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 75%;
+  display: inline-block;
+  border: none;
 }
 
-#add :hover{
-    background:#02aab0;
-    color:#eee;
+.create button {
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 25%;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  background-color: #eee;
 }
 
-#add{
-  width: 60px;
-  float: right;
+.main {
+  background-color: green;
 }
 
-#item-done {
-  background-color: #bebebe;
+.main ul {
+  padding-left: 0px;
+  margin: 0px;
 }
 
-#content .done{
+.main ul li {
+  list-style: none;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  padding: 10px 10px 10px 40px;
+  position: relative;
+}
+
+.main ul li:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.main ul li .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+}
+
+.main ul li.completed {
   text-decoration: line-through;
+  background-color: #a5a5a5;
+  color: #fff;
 }
 
-#content label {
-  padding: 0px;
-  margin-left: 70px;
+.main ul li.completed:before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  padding: 10px 15px;
+  background: url("./tick.svg") no-repeat top left;
 }
 
-#item:hover{
-  background: #faf0e6;
-  background-position:0;
+.main ul li:hover .close {
+  background-color: red;
+  color: #fff;
 }
 
-div > button:hover {
-  background:rgb(231, 85, 85);
-  color:#fff;
-}
-
-.delete {
+.main ul li .close {
   float: right;
 }
