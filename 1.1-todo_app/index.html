@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My To Do List</title>
+  <title id="title">My To Do List</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/style.class">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
   <div class="header">
     <h1>My To Do List</h1>
     <form class="create">
-      <input type="text" placeholder="Title...."><button>Add</button>
+      <input id="new-todo" type="text" placeholder="Title...."><button id="add">Add</button>
     </form>
   </div>
   <div class="main">
-    <ul>
+    <ul id="list">
       <li class="completed">Buy eggs<span class="close">X</span></li>
       <li>Read a book<span class="close">X</span></li>
       <li>Organize office<span class="close">X</span></li>
       <li>UET Code Camp 2018<span class="close">X</span></li>
     </ul>
   </div>
+
+  <script>
+    var button = document.getElementById("add");
+
+    button.addEventListener("click", function() {
+      var new_item = document.createElement("li");
+      var new_x  = document.createElement("span");
+      new_x.innerText = "X";
+      new_item.innerHTML = document.getElementById("new-todo").value;
+      new_item.appendChild(new_x);
+      document.getElementById("list").appendChild(new_item);
+    });
+
+    var close = document.getElementsByClassName("close");
+    close.addEventListener("click", function(){
+      close.parentElement.remove();
+    });
+  </script>
 </body>
 </html>
