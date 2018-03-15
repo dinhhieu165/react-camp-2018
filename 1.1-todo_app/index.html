@@ -1,40 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My To Do List</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <title id="title">My To Do List</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <div id="container">
-
-    <div id="header">
-      <h1 id="header-title">My To Do List</h1>
-      <form id="create">
-        <input id="type-text" type="text" placeholder="Title....">
-        <input id="add" type="submit" value="Add">
-      </form>
-    </div>
-
-    <div id="content">
-      <div id="item-done">
-        <label class="done">Buy eggs</label>
-        <button class="delete">&#x2715;</button>
-      </div>
-      <div id="item">
-        <label>Read a book</label><button class="delete">&#x2715;</button>
-        </br>
-      </div>
-      <div id="item">
-        <label>Organize office</label><button class="delete">&#x2715;</button>
-        </br>
-      </div>
-      <div id="item">
-       <label>UET Code Camp 2018</label><button class="delete">&#x2715;</button>
-        </br>
-      </div>
-    </div>
+  <div class="header">
+    <h1>My To Do List</h1>
+    <form class="create">
+      <input id="new-todo" type="text" placeholder="Title...."><button type="button" id="add">Add</button>
+    </form>
   </div>
+  <div class="main">
+    <ul id="list">
+      <li class="completed">Buy eggs<span class="close">X</span></li>
+      <li onclick="hasDone(this)">Read a book<span onclick="removeItem(this)" class="close">X</span></li>
+      <li onclick="hasDone(this)">Organize office<span onclick="removeItem(this)" class="close">X</span></li>
+      <li onclick="hasDone(this)">UET Code Camp 2018<span onclick="removeItem(this)" class="close">X</span></li>
+    </ul>
+  </div>
+
+  <script>
+    var button1 = document.getElementById("add");
+    var elem_li = document.createElement("li");
+    var elem_span = document.createElement("span");
+    elem_span.innerText = "X";
+    elem_span.className += "close";
+
+    button1.onclick = function(){
+      elem_li.innerText = document.getElementById("new-todo").value;
+      elem_li.innerHTML += elem_span;
+      document.getElementById("list").appendChild(elem_li);
+    };
+
+    function removeItem(e){
+      e.parentNode.parentNode.removeChild(e.parentNode);
+    };
+
+    function hasDone(event){
+      event.className += "completed";
+    };
+  </script>
 </body>
 </html>

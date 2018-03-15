@@ -1,3 +1,3 @@
-Name: Nguyen Dinh Hieu
+# Todo app
 
-This is exercise repository for UET Code Camp 2018
+Demo: https://youngdog.netlify.com/1.1-todo_app/
