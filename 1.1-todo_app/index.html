@@ -15,28 +15,32 @@
   <div class="main">
     <ul id="list">
       <li class="completed">Buy eggs<span class="close">X</span></li>
-      <li>Read a book<span class="close">X</span></li>
-      <li>Organize office<span class="close">X</span></li>
-      <li>UET Code Camp 2018<span class="close">X</span></li>
+      <li onclick="hasDone(this)">Read a book<span onclick="removeItem(this)" class="close">X</span></li>
+      <li onclick="hasDone(this)">Organize office<span onclick="removeItem(this)" class="close">X</span></li>
+      <li onclick="hasDone(this)">UET Code Camp 2018<span onclick="removeItem(this)" class="close">X</span></li>
     </ul>
   </div>
 
   <script>
-    var button = document.getElementById("add");
+    var button1 = document.getElementById("add");
+    var elem_li = document.createElement("li");
+    var elem_span = document.createElement("span");
+    elem_span.innerText = "X";
+    elem_span.className += "close";
 
-    button.addEventListener("click", function() {
-      var new_item = document.createElement("li");
-      var new_x  = document.createElement("span");
-      new_x.innerText = "X";
-      new_item.innerHTML = document.getElementById("new-todo").value;
-      new_item.appendChild(new_x);
-      document.getElementById("list").appendChild(new_item);
-    });
+    button1.onclick = function(){
+      elem_li.innerText = document.getElementById("new-todo").value;
+      elem_li.innerHTML += elem_span;
+      document.getElementById("list").appendChild(elem_li);
+    };
 
-    var close = document.getElementsByClassName("close");
-    close.addEventListener("click", function(){
-      close.parentElement.remove();
-    });
+    function removeItem(e){
+      e.parentNode.parentNode.removeChild(e.parentNode);
+    };
+
+    function hasDone(event){
+      event.className += "completed";
+    };
   </script>
 </body>
 </html>
